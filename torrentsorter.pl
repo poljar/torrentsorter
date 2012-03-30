@@ -69,7 +69,7 @@ sub getFileScore
     my $video = 0;
     my $comic = 0;
 
-    return 1 if($torrent->name() =~ m/\.(avi|mkv|mp4)$/);
+    return 1 if($torrent->name() =~ m/\.(avi|mkv|mp4|ogm)$/);
     return 2 if($torrent->name() =~ m/\.(mp3|flac|ogg)$/);
     return 3 if($torrent->name() =~ m/\.(cbz|cbr|cb7)$/);
 
@@ -78,7 +78,7 @@ sub getFileScore
            if($key eq 'path') {
                foreach my $path (@$value) {
                    $audio++ if($path =~ m/\.(mp3|flac|ogg)$/);
-                   $video++ if($path =~ m/\.(avi|mkv|mp4||ogm)$/); 
+                   $video++ if($path =~ m/\.(avi|mkv|mp4|ogm)$/); 
                    $comic++ if($path =~ m/\.(cbz|cbr|cb7)$/);
                }
            }
